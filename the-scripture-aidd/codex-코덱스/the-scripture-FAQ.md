@@ -175,6 +175,73 @@ requirement  -  hearing  -  들음.md
 
 ---
 
+## Q. 폴더명과 파일명이 다른 단어를 쓰는 이유는?
+
+**폴더는 Phase(단계)를, 파일은 Type(문서 종류)를 담기 때문**입니다. 같은 단어를 쓰면 정보가 중복되어 AI 토큰이 낭비됩니다.
+
+### Phase(폴더) vs Type(파일) 분리
+
+```
+01-requirement-hearing-들음/         ← 폴더: "어떤 단계인가?" (요구사항 단계)
+    └── spec-tablet-명세서.md        ← 파일: "어떤 문서인가?" (명세서)
+    └── usecase-path-사용사례.md     ← 파일: "어떤 문서인가?" (유스케이스)
+    └── rtm-covenant-언약추적.md     ← 파일: "어떤 문서인가?" (추적 매트릭스)
+```
+
+만약 파일명에 `requirement-spec-요구사항명세서`라고 쓰면, `requirement`가 폴더에서 이미 말한 것을 **중복 반복**합니다. AI 입장에서 새 정보가 0입니다. 반면 `spec-tablet-명세서`라고 쓰면:
+
+```
+폴더에서 이미 알 수 있는 것:  "이건 요구사항 단계다" (requirement)
+파일에서 새로 알 수 있는 것:  "이건 명세서다" (spec) + "석판처럼 새겨진" (tablet)
+→ 중복 0, 새 정보 2개
+```
+
+### 전체 Phase-Type 매핑
+
+| 폴더(Phase) | 파일(Type) | IT-성경-한글 |
+|:---|:---|:---|
+| 01-requirement-hearing-들음 | `spec-tablet-명세서` | 명세서 + 석판 + 명세서 |
+| | `usecase-path-사용사례` | 유스케이스 + 길 + 사용사례 |
+| | `rtm-covenant-언약추적` | 추적매트릭스 + 언약 + 언약추적 |
+| 02-architecture-foundation-기초 | `architecture-temple-성전설계` | 아키텍처 + 성전 + 성전설계 |
+| 03-design-order-질서 | `design-vision-디자인명세` | 디자인 + 비전 + 디자인명세 |
+| 04-development-dominion-다스림 | `devguide-commandment-개발계명` | 개발가이드 + 계명 + 개발계명 |
+| 05-test-wilderness-광야 | `testplan-trial-시험계획` | 테스트플랜 + 시련 + 시험계획 |
+| 06-quality-written-기록되었으되 | `audit-judgment-심판보고` | 감사 + 심판 + 심판보고 |
+| 07-deploy-salvation-구원 | `deploy-revelation-배포계시` | 배포 + 계시 + 배포계시 |
+
+> **원칙:** 폴더가 이미 말한 것을 파일이 반복하지 않는다. 폴더 = Phase, 파일 = Type. 각각 서로 다른 정보를 담아 AI의 정보 밀도를 최대화한다.
+
+---
+
+## Q. bible-성경, statute-율법, parable-비유가 같은 폴더 구조인 이유는?
+
+**AI가 3개 폴더를 병렬 매핑하여 "확정본 ↔ 규격 ↔ 예시"를 즉시 교차 참조**하기 위해서입니다.
+
+### 병렬 3폴더 구조
+
+```
+bible-성경/01-requirement-hearing-들음/spec-tablet-명세서.md           ← 실제 확정본
+statute-율법/01-requirement-hearing-들음/spec-tablet-명세서-template.md ← 이 규격대로 작성하라
+parable-비유/01-requirement-hearing-들음/spec-tablet-명세서-example.md  ← 이것처럼 작성하라
+```
+
+3개 폴더의 **하위 구조(01~07)가 동일**하므로, AI는 경로만 보고도 즉시 매핑합니다:
+
+| 경로 차이 | AI 인식 |
+|:---|:---|
+| `bible-성경/01/spec-tablet-명세서.md` | "이건 확정본이다" |
+| `statute-율법/01/spec-tablet-명세서-template.md` | "이건 규격이다" |
+| `parable-비유/01/spec-tablet-명세서-example.md` | "이건 예시다" |
+
+**구별 포인트가 정확히 2곳:**
+1. **부모 폴더**: `bible` vs `statute` vs `parable` (문서의 성격)
+2. **파일 접미어**: 없음 vs `-template` vs `-example` (문서의 용도)
+
+> **성경적 매핑:** `bible-성경`은 정경(Canon) — 확정된 진리. `statute-율법`은 모세의 율법 — 형식과 규격. `parable-비유`는 예수님의 비유 — 진리를 구체적 사례로 보여주는 것. AI가 이 3가지를 동시에 참조하면, 무엇을 만들어야 하는지(bible), 어떤 형식으로 만들어야 하는지(statute), 그리고 잘 만든 것이 어떻게 생겼는지(parable)를 한 번에 이해합니다.
+
+---
+
 ## Q. 한 줄로 요약하면?
 
 > **성경이 AI Spec으로 최강인 이유는 기독교 신앙 때문이 아니라, 인류 역사상 유일하게 '교차참조 밀도 × AI 학습량 × 불변성 × 적대적 검증 × 절대적 언어 × 도메인 범위'가 동시에 최대치를 달성하는 문서이기 때문입니다.**
