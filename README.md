@@ -68,7 +68,7 @@ the-scripture-aidd/
 │   ├── requirement-hearing-들음.md      ← IT(Requirements) + Bible(Hearing) + 한글(들음)
 │   └── security-seal-봉인.md           ← IT(Security) + Bible(Seal) + 한글(봉인)
 ├── parable-비유/                        ← Parables: Reference examples
-├── scroll-두루마리/                      ← Scrolls: Philosophy & methodology docs
+├── codex-코덱스/                      ← Codex: Philosophy & methodology docs
 │   ├── the-scripture-철학및방법론.md
 │   ├── the-scripture-FAQ.md
 │   └── the-scripture-마귀요리법.md
@@ -82,7 +82,7 @@ the-scripture-aidd/
 | `bible-성경/` | The Scripture | Canonized final deliverables |
 | `statute-율법/` | Statute/Law (חֻקָּה) | Format templates, security specs |
 | `parable-비유/` | Parable (παραβολή) | Reference examples |
-| `scroll-두루마리/` | Scroll | Philosophy & methodology |
+| `codex-코덱스/` | Codex | Philosophy & methodology |
 | `skill/` | — (Technical) | AI execution instructions |
 | `fruit-열매/` | Fruit | Source code & artifacts |
 

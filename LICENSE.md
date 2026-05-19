@@ -25,7 +25,7 @@ This license applies to the entire repository, including but not limited to:
 - **Pipeline Architecture** — The Genesis-to-Revelation SDLC mapping and all phase definitions
 - **Naming Conventions** — Triple Activation naming system and Tabernacle Architecture structure
 - **AI Persona Framework** — The Pilgrim's Progress persona and Trinity Architecture definitions
-- **Templates & Specs** — All statute (율법) templates, skill instructions, and scroll documents
+- **Templates & Specs** — All statute (율법) templates, skill instructions, and codex (코덱스) documents
 
 ---
 
@@ -33,7 +33,7 @@ This license applies to the entire repository, including but not limited to:
 
 This system is not just a development methodology — it is an **organic project that transplants faith, philosophy, and theological insight into AI behavioral patterns, creating a living development framework**.
 
-If you have discovered new insights or developed new patterns using this framework, please share at **jloveonly@gmail.com**. Your contributions can be integrated as new statutes (율법), parables (비유), or scroll documents (두루마리) within the system.
+If you have discovered new insights or developed new patterns using this framework, please share at **jloveonly@gmail.com**. Your contributions can be integrated as new statutes (율법), parables (비유), or codex documents (코덱스) within the system.
 
 **[Our AI Philosophy & Workflow]**
 > *"Hear the Spec (들음), Build with the Spirit's guidance, Test in the Wilderness, Defeat Satan's hallucination, and Deploy unto Salvation."*
@@ -46,7 +46,7 @@ As this framework is adopted and enriched by more developers, the patterns AI ca
 
 1. **Original Copyright Protection**: The origin of this system's core philosophy, methodology, and architecture belongs to the original creator. When redistributing, it is recommended to state the source (**[TheScripture.org](https://TheScripture.org)** / **the-scripture-aidd**).
 
-2. **Rights of Secondary Creators**: Copyright of newly added parts (new statutes, parables, scrolls, or methodology extensions) based on this system is recognized for the respective creator.
+2. **Rights of Secondary Creators**: Copyright of newly added parts (new statutes, parables, codices, or methodology extensions) based on this system is recognized for the respective creator.
 
 3. **Non-Assertion**: Users cannot exercise legal rights or hinder the usage of the original creator based on improvements obtained by utilizing this system.
 
