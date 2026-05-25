@@ -144,7 +144,9 @@ AI 에이전트의 페르소나는 특정 성경 인물이 아니라 **죄인(Si
 
 ```
 the-scripture-aidd/
-├── bible-성경/        ← 지성소 (Holy of Holies): 최종 확정 산출물. 정경화된 결과물.
+├── hearing-들음/      ← 바깥 뜰 (Outer Court): 원본 입력 수신. 누구나 들어올 수 있다.
+├── bible-성경/        ← 성소 (Holy Place): 정경화된 산출물. Phase 1~6의 확정 결과물.
+│   └── 07.deploy-salvation-구원/  ← 🔥 지성소 (Holy of Holies): 최종 배포 승인만.
 ├── statute-율법/      ← 율법 (The Law/Statute): 포맷 템플릿 및 보안 규격.
 ├── parable-비유/      ← 비유 (Parable): 참조 예시. 진리를 구체적 사례로 보여주는 산출물.
 ├── book-경전/         ← 경전 (Book): 철학, 방법론, 시스템 선언문.
@@ -154,16 +156,18 @@ the-scripture-aidd/
 
 | 폴더 | 성경적 의미 (KJV) | 기술적 역할 | 의미적 강화 효과 |
 |:---|:---|:---|:---|
-| `bible-성경/` | The Scripture (성경) | 최종 확정 산출물 (정경) | AI가 이 폴더를 절대 권위로 인식 |
+| `hearing-들음/` | Hearing (들음) | 원본 입력 수신 (Raw) | *"faith cometh by hearing"* — 바깥 뜰(Outer Court) |
+| `bible-성경/` | The Scripture (성경) | 정경화된 확정 산출물 | **성소(Holy Place)**: 거룩하지만 접근 가능 |
+| `bible-성경/07.deploy/` | Salvation (구원) | 최종 배포 승인 | 🔥 **지성소(Holy of Holies)**: 죄(버그)가 있으면 죽음(REJECT) |
 | `statute-율법/` | Statute/Law (율법, חֻקָּה) | 포맷 템플릿, 보안 규격 | "새겨진 규격" → 정확한 형식 준수 강제 |
 | `parable-비유/` | Parable (비유, παραβολή) | 참조 예시 | "진리를 사례로 보여줌" → 예시 학습 활성화 |
-| `book-경전/` | Book (경전) | 철학, 방법론 문서 | *"in the volume of the book"* (Psalm 40:7) → 체계적으로 정리된 가르침 |
+| `book-경전/` | Book (경전) | 철학, 방법론 문서 | *"in the volume of the book"* (Psalm 40:7) |
 | `skill/` | — (기술 용어) | AI 실행 지침 | 인프라는 성경 어휘 불필요 → 기술적 즉시 인식 |
 | `fruit-열매/` | Fruit (열매) | 소스 코드, 중간 산출물 | "열매로 그들을 알리라" → 결과물의 품질 검증 |
 
 
-> **💡 의미적 강화(Semantic Reinforcement)의 원리:**
-> 일반 프로젝트에서 `statute`는 낯선 단어일 뿐이지만, Bible이 이미 Spec으로 로딩된 이 시스템에서는 다릅니다. AI의 내부에 성경적 인지 모드가 이미 활성화되어 있으므로, 성경 어휘로 된 폴더명을 만날 때마다 **이미 활성화된 뉴런이 재자극**됩니다. 폴더명에 영어와 한글이 동시 표기(예: `statute-율법`)되어 있어 AI는 **이중 언어 경로를 통해 의미를 더욱 강하게 인식**합니다.
+> **💡 성막의 3중 구조 = 프로젝트의 3중 보안:**
+> 성막(Tabernacle)은 바깥 뜰 → 성소 → 지성소의 3중 구조로 되어 있습니다. 안으로 들어갈수록 거룩함의 수준이 올라가고, 접근 조건이 엄격해집니다. 이 프로젝트도 동일합니다: `hearing-들음/`(바깥 뜰)에서는 누구나 요구사항을 가져올 수 있지만, `bible-성경/`(성소)에 정경화하려면 율법(검증)을 통과해야 하고, `07.deploy-salvation-구원/`(지성소)에 들어가려면 **모든 Phase의 관문을 통과하고 품질 감사 IRONCLAD를 받아야** 합니다. 죄(버그)가 있는 채로 지성소에 들어가면 — 즉사(REJECT/시스템 장애)합니다.
 
 ---
 
