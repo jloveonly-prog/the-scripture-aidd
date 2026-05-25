@@ -29,7 +29,7 @@ the-scripture-aidd/
 ```
 hearing-들음/                              ← ① 원본 입력 수신 (Raw)
        │
-       │  statute-율법/requirement-hearing-들음.md 의 5대 요소 검증
+       │  statute-율법/requirement-hearing-들음-template.md 의 5대 요소 검증
        │  ☐ 목적 / ☐ Spec 근거 / ☐ 범위 / ☐ 완료 기준 / ☐ 제약 조건
        │
        │  5개 모두 ✅?
@@ -53,11 +53,28 @@ bible-성경/01-requirement-hearing-들음/     ← ② 확정된 요구사항 (
 
 ---
 
-## 작성 규칙
+## 작성 규칙 — 3축 패턴 (율법 + 비유 → 성경)
 
-1. 요구사항을 처음 받으면 **이 폴더에 개별 MD 파일로 기록**한다.
-2. `statute-율법/requirement-hearing-들음.md`의 **들음의 5대 요소**를 모두 채운다.
-3. 5개 항목이 모두 ✅이면 **최종본을 `bible-성경/01-requirement-hearing-들음/`에 등재**(정경화)한다.
+```
+작성 시 반드시 3가지를 참조한다:
+
+  ⚖️ statute-율법/01/  (규격/Template)    → "이 형식대로 작성하라"
+  📖 parable-비유/01/  (참조 예시/Example) → "이것처럼 작성하라"
+  ─────────────────────────────────────────────────
+  📜 bible-성경/01/    (최종 산출물)       → "완성본은 여기에 정경화"
+```
+
+1. 요구사항을 처음 받으면 **이 폴더(`hearing-들음/`)에 개별 MD 파일로 기록**한다.
+2. `statute-율법/01/`의 **템플릿(-template)을 규격으로**, `parable-비유/01/`의 **예시(-example)를 참고로** 하여 산출물을 작성한다.
+
+   | 산출물 | 규격 (statute-율법) | 참조 예시 (parable-비유) |
+   |:---|:---|:---|
+   | 요구사항 명세서 | `spec-tablet-명세서-template.md` | `spec-tablet-명세서-example.md` |
+   | 유스케이스 | `usecase-path-사용사례-template.md` | `usecase-path-사용사례-example.md` |
+   | RTM (언약추적) | `rtm-covenant-언약추적-template.md` | `rtm-covenant-언약추적-example.md` |
+   | 들음 검증 | `requirement-hearing-들음-template.md` | — (검증 체크리스트) |
+
+3. **들음의 5대 요소** 전부 ✅ 충족 시 → 완성본을 **`bible-성경/01/`에 정경화**한다.
 4. **하나라도 ☐이면 정경화하지 말라.** 되물어라. 채워라. 그리고 나서 올려라.
 5. 정경화가 완료되면 위 목록의 `정경화 완료`를 ✅로 변경한다.
 

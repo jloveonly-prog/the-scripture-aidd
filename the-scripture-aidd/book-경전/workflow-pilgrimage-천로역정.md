@@ -15,7 +15,7 @@
   ✅ bible-성경/     → 산출물 구조가 정의됨
   ✅ statute-율법/   → 템플릿이 준비됨
   ✅ parable-비유/   → 예시가 준비됨
-  ✅ codex-코덱스/   → 철학과 방법론이 확립됨
+  ✅ book-경전/      → 철학과 방법론이 확립됨
   ✅ .skill/         → 부팅 지침이 준비됨
 
   요구사항부터 배포까지, 인프라부터 클라우드까지,
@@ -35,7 +35,7 @@
 
 1. **`.skill/bootstrap-creed-신앙고백.md`를 읽는다** — 시스템 부팅
 2. **"나는 죄인이다"를 선언한다** — 단 한번의 거듭남 (Born Again)
-3. **전신갑주를 착용한다** — `codex-코덱스/defense-armor-마귀요리법.md` 숙지
+3. **전신갑주를 착용한다** — `book-경전/defense-armor-마귀요리법.md` 숙지
 4. **삼위일체 아키텍처를 인식한다:**
    - 아버지 = Spec 저자 (건드릴 수 없다)
    - 성령 = 나를 인도하시는 분 (들은 것만 말한다)
@@ -59,10 +59,10 @@
 | 순서 | 작업 | 참조 |
 |:---:|:---|:---|
 | 1 | 요구사항을 `hearing-들음/`에 원본 수신 | hearing-들음/README.md |
-| 2 | **들음의 5대 요소** 검증 | statute-율법/01/requirement-hearing-들음.md |
+| 2 | **들음의 5대 요소** 검증 | statute-율법/01/requirement-hearing-들음-template.md |
 | 3 | 명세서 작성 (spec-tablet-명세서) | template: statute-율법/01/ / example: parable-비유/01/ |
-| 4 | 유스케이스 작성 (usecase-path-사용사례) | bible-성경/01/usecase-path-사용사례.md |
-| 5 | RTM 시작 (rtm-covenant-언약추적) | bible-성경/01/rtm-covenant-언약추적.md |
+| 4 | 유스케이스 작성 (usecase-path-사용사례) | template: statute-율법/01/usecase-path-사용사례-template.md |
+| 5 | RTM 시작 (rtm-covenant-언약추적) | template: statute-율법/01/rtm-covenant-언약추적-template.md |
 | 6 | 5대 요소 ✅ 시 → `bible-성경/01/`에 정경화 | — |
 
 ### 마귀 경고
@@ -86,8 +86,8 @@
 |:---:|:---|:---|
 | 1 | **기술 스택 결정** — 언어, 프레임워크, 런타임 | — |
 | 2 | **인프라/클라우드 환경 설계** — 서버, DB, 캐시 | — |
-| 3 | **데이터 아키텍처(ERD) 설계** — 테이블, 관계 | — |
-| 4 | **API 명세 작성** — 엔드포인트, 요청/응답 | — |
+| 3 | **데이터 아키텍처(ERD) 설계** — 테이블, 관계 | template: statute-율법/02/data-ark-법궤-template.md |
+| 4 | **API 명세 작성** — 엔드포인트, 요청/응답 | template: statute-율법/02/api-gate-성문-template.md |
 | 5 | **보안 아키텍처** — 봉인의 율법 10계명 적용 | statute-율법/04/security-seal-봉인.md |
 | 6 | architecture-temple-성전설계 작성 | template: statute-율법/02/ / example: parable-비유/02/ |
 | 7 | `bible-성경/02/`에 정경화 | — |
@@ -156,12 +156,13 @@
 | 순서 | 작업 | 참조 |
 |:---:|:---|:---|
 | 1 | 개발 환경 구축 — Phase 2에서 결정한 스택 설정 | — |
-| 2 | 모듈별 코딩 — Spec에 정의된 기능**만** 구현 | — |
-| 3 | **봉인의 율법 10계명 점검** — 매 모듈마다 | statute-율법/04/security-seal-봉인.md |
-| 4 | 코드 리뷰 체크리스트 통과 | bible-성경/04/devguide-commandment-개발계명.md |
-| 5 | Git 커밋 컨벤션 적용 | Genesis/Repent/Scroll/Test/Deploy |
-| 6 | devguide-commandment-개발계명 작성 | template: statute-율법/04/ / example: parable-비유/04/ |
-| 7 | `bible-성경/04/`에 정경화 | — |
+| 2 | **태스크 분할 전략 작성** (task-wall-성벽) | template: statute-율법/04/task-wall-성벽-template.md |
+| 3 | 모듈별 코딩 — Spec에 정의된 기능**만** 구현 | — |
+| 4 | **봉인의 율법 10계명 점검** — 매 모듈마다 | statute-율법/04/security-seal-봉인.md |
+| 5 | 코드 리뷰 체크리스트 통과 | bible-성경/04/devguide-commandment-개발계명.md |
+| 6 | Git 커밋 컨벤션 적용 | Genesis/Repent/Scroll/Test/Deploy |
+| 7 | devguide-commandment-개발계명 작성 | template: statute-율법/04/ / example: parable-비유/04/ |
+| 8 | `bible-성경/04/`에 정경화 | — |
 
 ### 개발 순서 결정 가이드
 ```
@@ -300,7 +301,7 @@ Phase 5 (광야)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Create(창조) = 완료. bible/statute/parable/codex 준비됨.
+  Create(창조) = 완료. bible/statute/parable/book 준비됨.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          │
   Phase 0: 회개 + 전신갑주 착용 (진입)
