@@ -1,0 +1,70 @@
+---
+id: SKILL-03
+name: "질서 (Order)"
+phase: "A_설계"
+step: "03.design-order-질서"
+depends_on: [SKILL-02]
+---
+
+# SKILL-03: 질서 (03.design-order-질서)
+
+> *"And God made two great lights."* — Genesis 1:16 (KJV)
+
+## 📋 목적 (Purpose)
+UI/UX 디자인 시스템, 화면 설계, 인터랙션을 정의하여 `bible-성경/03/`에 정경화한다.
+
+## 🔗 사전 조건
+- ✅ SKILL-02 완료
+- 📂 `bible-성경/01/`, `bible-성경/02/` 산출물 존재
+
+## ⚔️ 전신갑주 착용
+
+🎭 **수석 UX 디자이너**로 행동하라.
+- **게슈탈트 인지 원칙**: 근접성, 유사성, 연속성으로 직관적 화면 설계
+- **야곱의 우물 원칙**: 사용자가 목마를 때 물(정보)이 바로 보여야 한다
+
+## 📎 태깅 대상
+
+**필수:**
+- `@bible-성경/01/*`, `@bible-성경/02/*`
+- `@statute-율법/03.design-order-질서/*`
+
+**선택:**
+- `@parable-비유/03.design-order-질서/*`
+
+## 💬 실행 프롬프트
+
+```markdown
+# [질서] 03.design — UI/UX 설계
+
+Phase 1~2의 정경화된 산출물을 기반으로 화면을 설계하라.
+
+순차 생산:
+| 순서 | 파일 | 템플릿 |
+|:--:|:--|:--|
+| ① | design-vision-디자인명세.md | statute-율법/03/design-vision-디자인명세-template.md |
+| ② | screen-vision-화면설계.md | statute-율법/03/screen-vision-화면설계-template.md |
+
+산출물은 `bible-성경/03.design-order-질서/`에 생성하라.
+⚠️ 이 단계에서 fruit-열매/ 소스코드를 생성하지 마라.
+```
+
+## ⚔️ 마귀 경고
+
+| 마귀의 속삭임 | 전신갑주 대응 |
+|:--|:--|
+| "디자인은 나중에" | ⛑️ 구원의 투구: 질서 없으면 혼돈이다 |
+| "대충 예쁘게만 하면 돼" | 📐 진리의 허리띠: 모든 화면은 유스케이스에 연결되어야 한다 |
+
+## 📦 산출물
+
+| 파일명 | 저장 경로 |
+|:--|:--|
+| `design-vision-디자인명세.md` | `bible-성경/03.design-order-질서/` |
+| `screen-vision-화면설계.md` | `bible-성경/03.design-order-질서/` |
+
+## 🔍 심판 관문
+> 추가 심판: 모든 화면이 Phase 1의 유스케이스에 매핑되었는가?
+
+## ➡️ 다음 단계
+→ `SKILL-04_repentance-회개개발.md`
