@@ -25,16 +25,16 @@
 
 ## 태스크 분할표
 
-| TASK-ID | 성벽 구간 | 설명 | 연결 REQ | 연결 API/TBL | 선행 태스크 | 규모 | 상태 |
-|:---|:---|:---|:---|:---|:---|:---:|:---:|
-| TASK-001 | DB 스키마 | books, verses, users 테이블 생성 + KJV 시드 | REQ-001,002 | TBL-001~003 | — | M | ✅ |
-| TASK-002 | SearchService | 키워드 검색 + 구절 조회 로직 | REQ-001 | API-001,002 / TBL-002 | TASK-001 | M | ✅ |
-| TASK-003 | AuthService | 회원가입/로그인 + JWT 발급 | REQ-002 | API-003,004 / TBL-001 | TASK-001 | M | ✅ |
-| TASK-004 | BookmarkService | 북마크 추가/삭제/목록 | REQ-003 | API-005,006 / TBL-004 | TASK-001 | S | ✅ |
-| TASK-005 | API 엔드포인트 | 6개 API Controller + Router | REQ-001~003 | API-001~006 | TASK-002,003,004 | M | ✅ |
-| TASK-006 | 프론트엔드 | 검색 화면, 구절 상세, 로그인 | REQ-001~003 | — | TASK-005 | L | ✅ |
-| TASK-007 | 보안 적용 | JWT 미들웨어, bcrypt | REQ-002 | — | TASK-003 | S | ✅ |
-| TASK-008 | 배포 설정 | Dockerfile, docker-compose | — | — | TASK-006,007 | S | ✅ |
+| TASK-ID | 성벽 구간 | 설명 | 연결 REQ | 연결 API/TBL | 생성 파일 | 파일의 단일 책임 | 선행 | 규모 | 상태 |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---:|:---:|
+| TASK-001 | DB 스키마 | 테이블 생성 + KJV 시드 | REQ-001,002 | TBL-001~003 | `src/db/schema.ts` | DB 스키마 정의 + 마이그레이션 **만** | — | M | ✅ |
+| TASK-002 | SearchService | 키워드 검색 + 구절 조회 | REQ-001 | API-001,002 | `src/services/search.ts` | 검색 비즈니스 로직 **만** | TASK-001 | M | ✅ |
+| TASK-003 | AuthService | 회원가입/로그인 + JWT | REQ-002 | API-003,004 | `src/services/auth.ts` | 인증 비즈니스 로직 **만** | TASK-001 | M | ✅ |
+| TASK-004 | BookmarkService | 북마크 추가/삭제/목록 | REQ-003 | API-005,006 | `src/services/bookmark.ts` | 북마크 로직 **만** | TASK-001 | S | ✅ |
+| TASK-005 | API 엔드포인트 | 6개 API Controller | REQ-001~003 | API-001~006 | `src/routes/search.ts` · `src/routes/auth.ts` · `src/routes/bookmark.ts` | HTTP 요청 처리 **만** (각 도메인별 파일) | TASK-002~004 | M | ✅ |
+| TASK-006 | 프론트엔드 | 검색/상세/로그인 화면 | REQ-001~003 | — | `src/views/search.tsx` · `src/views/verse.tsx` · `src/views/login.tsx` | 렌더링 **만** (화면별 파일) | TASK-005 | L | ✅ |
+| TASK-007 | 보안 적용 | JWT 미들웨어, bcrypt | REQ-002 | — | `src/middleware/auth.ts` | 인증 미들웨어 **만** | TASK-003 | S | ✅ |
+| TASK-008 | 배포 설정 | Docker, CI/CD | — | — | `Dockerfile` · `docker-compose.yml` | 인프라 설정 **만** | TASK-006,007 | S | ✅ |
 
 ### TASK-006 서브 태스크 (L 규모 분할)
 

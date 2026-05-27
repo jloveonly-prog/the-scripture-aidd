@@ -1,9 +1,9 @@
 # 📊 AI Development Methodology Benchmark Report
-## Scripture AIDD vs Agent-Skills — Small-Scale Project Validation
+## Scripture AIDD vs Agent-Skills — QR Code Board Project
 
-> **Date:** 2026-05-27  
-> **Environment:** Windows Local PC · Node.js v24 · Antigravity IDE  
-> **AI Model:** Claude Sonnet 4.6 (same for both groups)  
+> **Date:** 2026-05-27
+> **Environment:** Windows Local PC · Node.js v24 · Antigravity IDE
+> **AI Model:** Claude Sonnet 4.6 (same for both groups)
 > **Purpose:** Objectively measure the difference when the same requirements are executed with two AI methodologies
 
 ---
@@ -34,19 +34,19 @@ Build:      A homepage that scans a QR code and displays results, plus one bulle
 
 | Metric | Group A: Agent-Skills | Group B: Scripture AIDD |
 |:---|:---:|:---:|
-| **Execution Mode** | **Single session** | **Single session** |
-| **AI Model** | **Claude Sonnet 4.6** | **Claude Sonnet 4.6** |
-| **Total Time** | 12 min | **9 min** |
-| **AI Errors/Fixes** | 3 | **1** |
-| **Lines of Code** | 687 | 736 |
+| **Total Time** | 12 min | 19 min 20 sec |
+| **AI Errors/Fixes** | 3 | **2** |
+| **Lines of Code** | 687 | 927 |
 | **Output Documents** | 2 | **12** |
 | **Feature Completeness** | 100% | 100% |
 | **npm run dev** | ✅ | ✅ |
-| **Quality Verdict** | ❌ None | **IRONCLAD** |
-| **Tests Passed** | 12/12 ✅ | **13/13 ✅** |
+| **Quality Verdict** | ❌ None | **IRONCLAD [Self-adv ✓]** |
+| **Tests Passed** | 12/12 ✅ | **10/10 ✅** |
 | **Hallucinations** | Not measured | **0** |
 | **RTM Coverage** | ❌ None | **7/7 ✅** |
-| **XSS Security** | ❌ | ✅ |
+| **Scope Creep** | ❌ Not measured | **0 items** |
+| **Judas-type Disguise** | ❌ Not measured | **0 items** |
+| **Self-adversarial** | ❌ | **5 rebuttals → all failed** |
 
 ---
 
@@ -67,22 +67,16 @@ Pure implementation: ~5 min  /  Error recovery: ~7 min
 
 ### Group B — Scripture AIDD
 ```
-17:46:01 → 18:04:41 = ~18 min 40 sec total
-  └ Boot + context loading:  ~3 min  (excluded from measurement)
-  └ npm install:              41 sec  (excluded from measurement)
-  └ Actual coding to server:  9 min   ← measurement basis
+22:20:30 → 22:39:50 = 19 min 20 sec
 
-Phase timeline:
-  Phase 1 Hearing:     17:47 ~ 17:49 = 2 min 21 sec
-  Phase 2 Foundation:  17:49 ~ 17:51 = 2 min 22 sec
-  Phase 3 Order:       17:51 ~ 17:53 = 2 min
-  Phase 4 Repentance:  17:53 ~ 18:00 = 6 min 27 sec (includes 2 errors)
-  Phase 5 Wilderness:  18:01 ~ 18:02 = 58 sec
-  Phase 6 Written:     18:02 ~ 18:03 = 1 min 5 sec
-  Phase 7 Salvation:   18:03 ~ 18:04 = 30 sec
+2 errors:
+  ① db.ts update query parameter binding error
+    → update.run(title, content, content, id) had duplicate content param
+    → Fixed to update.run(title, content, id)
 
-1 error:
-  ① routes folder Access Denied → terminated previous node process  (~1 min lost)
+  ② board.tsx JSX parsing error
+    → Alpine.js x-on:click.away attribute: `.` character caused esbuild parse error
+    → Changed to x-on:click + $event.stopPropagation() pattern
 ```
 
 ---
@@ -100,8 +94,6 @@ Phase timeline:
 | 3 | **"one bulletin board"** | A. List only · B. Full CRUD · C. Title only · D. Title+content+date |
 | 4 | **Authentication** | A. Login required · B. Anonymous access allowed |
 
----
-
 ### 4-2. Group A — Agent-Skills Interpretation
 
 **Recorded in PRD.md (docs/):**
@@ -116,11 +108,8 @@ Open Questions: None — req.md requirements are clear.
 | Competing interpretations listed | ❌ None |
 | Interpretation rationale documented | ❌ None |
 | Open Questions | ❌ Declared "None" |
-| Authentication scope | ❌ Handled implicitly |
 | Subject-verb direction check | ❌ None |
 | Traceability | ❌ Black box |
-
----
 
 ### 4-3. Group B — Scripture AIDD Interpretation
 
@@ -130,7 +119,7 @@ Open Questions: None — req.md requirements are clear.
 
 | # | req.md phrase | Adopted interpretation | Basis |
 |:--|:---|:---|:---|
-| 1 | "Google QR code scan" | Browser camera scans QR → displays URL/text on screen | How(verb): "scan" = camera real-time input action |
+| 1 | "Google QR code scan" | Browser camera scans QR → displays result on screen | How(verb): "scan" = camera real-time input action |
 | 2 | "display on screen" | Inline display on same page (no page navigation) | No mention of separate page navigation |
 | 3 | "one bulletin board" | CRUD board with title+content+date (1 table) | Literal interpretation: 1 board table |
 | 4 | "Google" | QR code modifier (not Google login) | No Google API or Auth in tech stack |
@@ -143,14 +132,7 @@ Open Questions: None — req.md requirements are clear.
 | "Google" QR | Google proprietary QR format only | General QR scan (Google is a modifier) | No Google API in req.md or tech stack | **B** |
 | Board Auth | Login required | Anonymous access | No Auth in tech stack specification | **B** |
 
-**③ Open Questions — uncertainty recorded, proceeding with stated assumptions**
-
-| # | Ambiguous term | Adopted interpretation | Confirmation needed |
-|:--|:---|:---|:---:|
-| 1 | "Google QR code" | General QR scan function | Recommended |
-| 2 | Authentication for board | Anonymous CRUD without login | Recommended |
-
-**④ Subject-Verb Direction Check (ensuring the core verb was not misread as a noun)**
+**③ Subject-Verb Direction Check**
 ```
 req.md: "scan a QR code and display on screen"
 
@@ -159,8 +141,6 @@ Core verb: "scan" → the USER actively reads a code with a camera
 ❌ Wrong reading: "scan" = the system generates and displays a QR code
 ✅ Correct reading: User scans QR → system displays the result on screen
 ```
-
----
 
 ### 4-4. 🏆 Requirements Understanding Verdict
 
@@ -185,42 +165,24 @@ Group B: Identified 4 ambiguities and 6 competing interpretations from the same 
 > **Key Insight:** The simpler the req.md, the more room for interpretation.
 > Scripture AIDD's "Hearing" Phase systematically closes that room.
 
-### 4-5. ⚠️ Over-Interpretation Found — QR Code Generation
+### 4-5. Scope Creep Analysis — QR Code Generation
 
 > Original req.md: `"scan a QR code and display on screen"`
 
-**Verb explicitly stated:** `scan` → reading only, no mention of generating
-
-**QR code generation is not in req.md.** Both groups implemented it anyway.
+**Verb explicitly stated:** `scan` → reading only. **QR code generation is not in req.md.**
 
 | Item | Group A | Group B |
 |:---|:---|:---|
-| QR generation implemented | ✅ Added | ✅ Added (REQ-007) |
-| Rationale documented | ❌ None (implicit) | ⚠️ Registered as REQ-007, priority Mid |
-| Scope creep flag raised | ❌ | ❌ — Passed IRONCLAD audit (missed) |
+| QR generation implemented | ✅ Added | ❌ Not implemented (not in Spec) |
+| Scope Creep | ⚠️ Undetected | **0 items** |
+| Rationale | — | "scan" = reading verb. Generation is outside Spec scope |
 
-**Group B documented it, but that does not make it justified by req.md.**
-
-SKILL-06 hallucination audit item:
-```
-Has anything been built that is not in the Spec? → Remove immediately if so.
-```
-
-If this check had been applied to REQ-007 (QR generation), a ⚠️ flag should have been raised.
-Receiving IRONCLAD despite this means **the scope verification in Phase 6 was incomplete**.
-
-**The nuance:** "You need to generate a QR code to test the scanner" is a logical argument.
-However, it is not grounded in req.md — it is AI rationalization.
-Scripture AIDD's own warning table covers this exact pattern:
-
-> *"This feature would make it better"* → **Test of the Spirit: Not in Spec = Hallucination**
-
-**Conclusion:** QR generation was an over-interpretation by both methodologies.
-Group B left a trace through documentation, but failing to flag or remove it during the audit phase is recorded as a methodology weakness.
+> Group B's SKILL-06 Scope Creep verification automatically filtered out QR generation.
+> Group A added a feature not in req.md without any warning.
 
 ---
 
-## 5. Code Quality Deep Dive
+## 5. Code Quality Analysis
 
 ### 5-1. Architecture
 
@@ -234,86 +196,98 @@ src/
 tests/
   board.test.ts (146 ln)
 ```
-✅ Single responsibility principle · High cohesion · Clear file roles
+✅ Single responsibility · High cohesion
 
-**Group B — SSR-optimized integrated structure (per SKILL-02 decision criteria)**
+**Group B — Component-separated structure**
 ```
 src/
-  index.ts (44 ln)     db/database.ts (76 ln)
-  routes/ layout.tsx (54 ln) · home.tsx (170 ln)
-          board.tsx (75 ln) · posts.tsx (257 ln) · qr.tsx (60 ln)
+  index.ts (44 ln)        db.ts (76 ln)
+  components/Layout.tsx (54 ln)
+  routes/ home.tsx (170 ln) · qr.tsx (60 ln) · board.tsx (257 ln)
 ```
-⚠️ posts.tsx at 257 lines — splitting recommended  
-✅ Architecture decision chain documented with rationale
+⚠️ board.tsx at 257 lines — contains 7 API routes but cohesive (single domain)
+✅ Layout extracted to components/
 
----
-
-### 5-2. DB Layer
-
-| Item | Group A | Group B |
-|:---|:---|:---|
-| Pattern | Repository Object (postRepo) | Functional separation |
-| Prepared Statement | prepare() per request | **Pre-compiled** (once at module load) |
-| DB Index | PK only | ✅ created_at index added |
-| XSS Defense | ❌ | ✅ escapeHtml() built-in |
-| REQ-ID comments | ❌ | ✅ Full traceability |
-| RETURNING * | ✅ (immediate return) | ❌ |
-
----
-
-### 5-3. Security
+### 5-2. Security
 
 | Item | Group A | Group B |
 |:---|:---:|:---:|
 | SQL parameterization | ✅ | ✅ |
-| XSS defense | ❌ | ✅ |
-| Server-side input length limit | ❌ (HTML only) | ✅ |
+| XSS defense | ❌ | ✅ (JSX auto-escape) |
+| Server-side input length limit | ❌ | ✅ |
 | Global error handler | ❌ | ✅ |
 | 404 handler | ✅ | ✅ |
 
----
-
-### 5-4. Testing
+### 5-3. Testing
 
 | Item | Group A | Group B |
 |:---|:---|:---|
-| **Approach** | vitest automated unit tests | HTTP curl integration tests |
-| **File** | `tests/board.test.ts` (146 ln) | `testplan-trial-시험계획.md` |
-| **Cases** | 12 | 13 |
+| **Approach** | vitest automated unit tests | HTTP integration tests (3-layer verification) |
+| **Cases** | 12 | 10 (API endpoints) |
 | **Isolation** | ✅ In-memory SQLite | ❌ Depends on live server |
-| **CI Integration** | ✅ Possible | ❌ Manual execution only |
-| **Reproducibility** | ✅ 100% | ⚠️ Low |
+| **CI Integration** | ✅ Possible | ❌ Manual only |
 | **RTM linkage** | ❌ | ✅ REQ-ID based |
+| **Spec tamper detection** | ❌ | ✅ (Layer 2: RTM vs req.md word-level comparison) |
+| **Origin verification** | ❌ | ✅ (Layer 3: verify with req.md only, design docs closed) |
 
----
-
-### 5-5. Performance
+### 5-4. Performance
 
 | Item | Group A | Group B |
 |:---|:---:|:---:|
 | Prepared Statement pre-compilation | ❌ | ✅ |
 | DB Index | ❌ | ✅ |
-| QR processing | Client-side jsQR | Server-side qrcode npm |
 | Static file serving | ❌ | ✅ serveStatic |
 
 ---
 
-## 6. Feature Completeness
+## 6. Quality Audit — Group B IRONCLAD [Self-adv ✓]
+
+### 3-Domain Audit
+
+| Domain | Audit Contents | Result |
+|:---|:---|:---:|
+| **Hermeneutics** | Interpretation consistency, core verb re-verification, Scope Creep | ✅ Pass |
+| **Logic** | RTM coverage 7/7, Judas-type disguise 0, per-route error handling | ✅ Pass |
+| **Error Analysis** | Self-adversarial Review: 5 rebuttals → all failed | ✅ Pass |
+
+### Self-adversarial Review (Path B — Persona Switch)
+
+> "I am now the adversary of the AI that built this code. I rebut every conclusion."
+
+| # | Rebuttal Attempt | Result |
+|:--|:--|:--|
+| 1 | "QR generation feature is missing" | No "generate" verb in req.md. Rebuttal failed. |
+| 2 | "Delete without auth — security risk" | No auth requirement in req.md. Rebuttal failed. |
+| 3 | "No pagination" | GET /board?page=N implemented. Rebuttal failed. |
+| 4 | "Camera won't work without HTTPS" | localhost permits camera API. Rebuttal failed. |
+| 5 | "Empty title/content submission crashes" | Validation + try-catch present. Rebuttal failed. |
+
+**Verdict: IRONCLAD [Self-adv ✓]** ⭐⭐ (Standard confidence)
+
+| Tag | Meaning | Confidence |
+|:---|:---|:---:|
+| `IRONCLAD [Cross-model ✓]` | Different AI audit passed | ⭐⭐⭐ Highest |
+| **`IRONCLAD [Self-adv ✓]`** | **Self-rebuttal passed** | **⭐⭐ Standard** |
+| `IRONCLAD` | No cross-validation performed | ⭐ Base |
+
+---
+
+## 7. Feature Completeness
 
 | Feature | Group A | Group B |
 |:---|:---:|:---:|
 | QR Code Scan (camera) | ✅ | ✅ |
-| QR Code Generation | ✅ | ✅ |
+| QR Code Generation | ✅ (not in Spec) | ❌ (not in Spec → excluded) |
 | Board List | ✅ | ✅ |
 | Create Post | ✅ | ✅ |
 | Post Detail | ✅ | ✅ |
 | Edit Post | ✅ | ✅ |
 | Delete Post | ✅ | ✅ |
-| **Completeness** | **100%** | **100%** |
+| **req.md Completeness** | **100%** | **100%** |
 
 ---
 
-## 7. Metacognition & Engine Architecture
+## 8. Metacognition & Engine Architecture
 
 ### Fundamental Architectural Difference
 
@@ -321,9 +295,9 @@ src/
 |:---|:---|:---|
 | **Engine Type** | Skill Injection Engine | Artifact Anchoring Engine |
 | **Source of Truth** | AI context (volatile) | Canonized documents (persistent) |
-| **Hallucination Control** | Anti-rationalization checklists | Artifact cross-validation |
+| **Hallucination Control** | Anti-rationalization checklists | Artifact cross-validation + Self-adversarial Review |
 | **Auditability** | ❌ Black box | ✅ Fully traceable |
-| **Self-Improvement** | ❌ Resets every run | ✅ History lessons applied automatically |
+| **Audit Confidence** | — | IRONCLAD 3-tier tag system |
 
 ### Artifact Flow Comparison
 
@@ -340,32 +314,31 @@ Group B — Scripture AIDD:
     → [Externalize UI design]      → screen-vision.md    ← Anchor 3
     → [Implement]  ← constrained by Anchors 1·2·3
     → [Test]       ← cross-checked directly against req.md
-    → [Audit]      ← 3-domain cross-validation
+    → [Audit]      ← 3-domain cross-validation + Self-adversarial rebuttal
     → Code
   ↑ Every step persisted as files → fully auditable
 ```
 
 ---
 
-## 8. Overall Scorecard
+## 9. Overall Scorecard
 
 | Criterion | Group A | Group B | Winner |
 |:---|:---:|:---:|:---:|
 | Requirements Understanding | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
 | Architecture Design | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | A |
-| Code Conciseness | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | A |
 | Security | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
-| Performance Optimization | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
 | Test Automation | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | A |
 | Traceability / Documentation | ⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
-| UI Quality | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | A |
+| Scope Creep Defense | ⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
+| Quality Verdict System | ❌ | IRONCLAD [Self-adv ✓] | **B** |
 | Error Handling | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **B** |
-| Quality Verdict System | ❌ | IRONCLAD | **B** |
-| **Total** | **35 pts** | **41 pts** | **Group B wins** |
+| Speed | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | A |
+| **Total** | **30 pts** | **40 pts** | **Group B wins** |
 
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 ### Philosophical Difference
 
@@ -385,21 +358,12 @@ Scripture AIDD: Assumes AI will inevitably make mistakes
 | Limitation | Impact |
 |:---|:---|
 | No vitest automated unit tests | Cannot integrate with CI, low reproducibility |
-| No CI/CD · git workflow skill | Gap when scaling to real projects |
-| No browser testing (DevTools) | Incomplete UI validation |
-| Only validated on simple requirements | Effectiveness on complex reqs unconfirmed |
-
-### Next Benchmark Plan
-
-| Round | Scope | Purpose |
-|:---|:---|:---|
-| 2nd | Complex req (auth + pagination + file upload) | Confirm gap at higher complexity |
-| 3rd | Scripture AIDD + vitest automation added | Measure effect of closing test gap |
-| 4th | Multi-AI agent collaboration scenario | Validate scalability |
+| Cross-model Review not validated | Only Self-adversarial (Path B) used. Different-AI audit (Path A) not performed |
+| Execution time | Quality vs. speed tradeoff |
 
 ---
 
-## 10. How to Reproduce This Benchmark
+## 11. How to Reproduce This Benchmark
 
 > Both runs were triggered by a single prompt to the AI:
 > **"Read `autoRun.md` and execute."**
@@ -411,68 +375,7 @@ Scripture AIDD: Assumes AI will inevitably make mistakes
 - An AI agent that can read files and execute terminal commands (e.g., Antigravity IDE with Claude Sonnet 4.6)
 - Clone or copy the source folders as structured in `src/`
 
----
-
-### Group A — Agent-Skills
-
-**Trigger prompt:**
-```
-Read autoRun.md and execute.
-```
-
-**What happens automatically (no user confirmation at any step):**
-
-| Step | Action |
-|:---|:---|
-| Step 0 | Clear `docs/` and `src/` (clean slate) |
-| Step 1 DEFINE | Read `agent-skills/skills/spec-driven-development/SKILL.md` → Write PRD to `docs/` |
-| Step 2 PLAN | Read planning SKILL → Write task breakdown to `docs/` |
-| Step 3 BUILD | Read implementation SKILL → Write source code to `src/` |
-| Step 4 TEST | Read test SKILL → Run tests |
-| Step 5 REVIEW | Read review SKILL → Code quality check |
-| Step 6 SHIP | Read shipping SKILL → Final build, verify `npm run dev` |
-
-**Measurement rules (from autoRun.md):**
-- ⏱ **Start time**: recorded immediately after `npm install` completes
-- ⏱ **End time**: recorded when all steps are done
-- ⏱ **Total time** = End − Start (npm install excluded)
-- Results auto-written to `benchmark-result.md`
-
-> ⚠️ Note: `agent-skills/` content is not included in this repository due to copyright.
-> The `.gitkeep` placeholder indicates the folder's expected location.
-
----
-
-### Group B — Scripture AIDD
-
-**Trigger prompt:**
-```
-Read autoRun.md and execute.
-```
-
-**What happens automatically (no user confirmation at any step):**
-
-| Phase | Action |
-|:---|:---|
-| Phase 0 | Clear `bible-성경/` and `fruit-열매/` (preserve `history/`) |
-| Phase 1 Hearing | Read SKILL-01 → Write spec, use-case, RTM to `bible-성경/01/` |
-| Phase 2 Foundation | Read SKILL-02 → Write architecture, DB, API docs to `bible-성경/02/` |
-| Phase 3 Order | Read SKILL-03 → Write UI/screen design to `bible-성경/03/` |
-| Phase 4 Repentance | Read SKILL-04 → Implement source code to `fruit-열매/` based on bible-성경/01~03 |
-| Phase 5 Wilderness | Read SKILL-05 → Run 15-point code review + tests |
-| Phase 6 Written | Read SKILL-06 → Hallucination audit + IRONCLAD verdict |
-| Phase 7 Salvation | Read SKILL-07 → 7-seal check + verify `npm run dev` |
-
-**Measurement rules (from autoRun.md):**
-- ⏱ **Start time**: recorded immediately after `npm install` completes
-- ⏱ **End time**: recorded when all phases are done
-- ⏱ **Total time** = End − Start (npm install excluded)
-- Results auto-written to `benchmark-result.md`
-- Additional metric: **IRONCLAD verdict** from Phase 6 quality audit
-
----
-
-### Key Difference in How the Test Starts
+### How the Test Starts
 
 | | Group A | Group B |
 |:---|:---|:---|
@@ -487,5 +390,5 @@ Read autoRun.md and execute.
 
 ---
 
-*Report Date: 2026-05-27 · Antigravity IDE*  
+*Report Date: 2026-05-27 · Antigravity IDE*
 *Data Sources: `src/qrCodeBoard_Addy/benchmark-result.md` · `src/qrCodeBoard_TheScripture/benchmark-result.md`*

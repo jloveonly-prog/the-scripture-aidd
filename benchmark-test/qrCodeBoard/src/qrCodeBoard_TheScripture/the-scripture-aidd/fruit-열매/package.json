@@ -1,0 +1,22 @@
+{
+  "name": "qr-code-board",
+  "version": "1.0.0",
+  "description": "QR Code Board — The Scripture",
+  "scripts": {
+    "dev": "tsx watch src/index.tsx",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "@hono/node-server": "^1.13.0",
+    "better-sqlite3": "^11.0.0",
+    "html5-qrcode": "^2.3.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
