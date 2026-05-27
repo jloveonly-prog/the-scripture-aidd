@@ -39,6 +39,16 @@ depends_on: [SKILL-01]
 
 Phase 1(들음)에서 정경화된 요구사항을 기반으로 시스템 아키텍처를 설계하라.
 
+⚠️ **인프라/클라우드 환경 설계**
+
+기술 스택 결정과 함께 아래 인프라 항목을 반드시 설계하라:
+- 서버 구성 (로컬/클라우드/하이브리드)
+- DB 서버 및 캐시 전략
+- 배포 환경 (Staging/Production)
+- 클라우드 서비스 선택 근거
+
+인프라 결정도 아키텍처 결정 체인에 포함하여 REQ-ID까지 추적 가능해야 한다.
+
 ⚠️ **코드 폴더 구조 판단 — AI가 기술 스택을 보고 결정하라**
 
 > 폴더 구조는 언어/프레임워크마다 다르다. 임의 구조를 강제하지 말고,
@@ -76,7 +86,7 @@ Phase 1(들음)에서 정경화된 요구사항을 기반으로 시스템 아키
 순차 생산:
 | 순서 | 파일 | 템플릿 |
 |:--:|:--|:--|
-| ① | architecture-temple-성전설계.md | statute-율법/02/architecture-temple-성전설계-template.md |
+| ① | architecture-temple-성전설계.md (인프라/클라우드 포함) | statute-율법/02/architecture-temple-성전설계-template.md |
 | ② | data-ark-법궤.md (ERD/DB 설계) | statute-율법/02/data-ark-법궤-template.md |
 | ③ | api-gate-성문.md (API 명세) | statute-율법/02/api-gate-성문-template.md |
 

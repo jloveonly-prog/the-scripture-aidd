@@ -3,6 +3,7 @@
 
 > **Date:** 2026-05-27  
 > **Environment:** Windows Local PC · Node.js v24 · Antigravity IDE  
+> **AI Model:** Claude Sonnet 4.6 (same for both groups)  
 > **Purpose:** Objectively measure the difference when the same requirements are executed with two AI methodologies
 
 ---
@@ -23,6 +24,8 @@ Build:      A homepage that scans a QR code and displays results, plus one bulle
 | **Engine Type** | Skill Injection Engine | Artifact Anchoring Engine |
 | **AI Persona** | "Senior Engineer" | "I am a sinner" |
 | **Pipeline** | 6 stages (DEFINE → SHIP) | 7 Phases (Hearing → Salvation) |
+| **AI Model** | **Claude Sonnet 4.6** | **Claude Sonnet 4.6** |
+| **Execution Mode** | **Single session (no sub-agents)** | **Single session (no sub-agents)** |
 | **Workspace** | `F:\qrCodeBoard_Addy` | `F:\qrCodeBoard_TheScripture` |
 
 ---
@@ -31,6 +34,8 @@ Build:      A homepage that scans a QR code and displays results, plus one bulle
 
 | Metric | Group A: Agent-Skills | Group B: Scripture AIDD |
 |:---|:---:|:---:|
+| **Execution Mode** | **Single session** | **Single session** |
+| **AI Model** | **Claude Sonnet 4.6** | **Claude Sonnet 4.6** |
 | **Total Time** | 12 min | **9 min** |
 | **AI Errors/Fixes** | 3 | **1** |
 | **Lines of Code** | 687 | 736 |
@@ -394,5 +399,93 @@ Scripture AIDD: Assumes AI will inevitably make mistakes
 
 ---
 
+## 10. How to Reproduce This Benchmark
+
+> Both runs were triggered by a single prompt to the AI:
+> **"Read `autoRun.md` and execute."**
+> No further user input was given until completion.
+
+### Prerequisites
+
+- Node.js v24+
+- An AI agent that can read files and execute terminal commands (e.g., Antigravity IDE with Claude Sonnet 4.6)
+- Clone or copy the source folders as structured in `src/`
+
+---
+
+### Group A — Agent-Skills
+
+**Trigger prompt:**
+```
+Read autoRun.md and execute.
+```
+
+**What happens automatically (no user confirmation at any step):**
+
+| Step | Action |
+|:---|:---|
+| Step 0 | Clear `docs/` and `src/` (clean slate) |
+| Step 1 DEFINE | Read `agent-skills/skills/spec-driven-development/SKILL.md` → Write PRD to `docs/` |
+| Step 2 PLAN | Read planning SKILL → Write task breakdown to `docs/` |
+| Step 3 BUILD | Read implementation SKILL → Write source code to `src/` |
+| Step 4 TEST | Read test SKILL → Run tests |
+| Step 5 REVIEW | Read review SKILL → Code quality check |
+| Step 6 SHIP | Read shipping SKILL → Final build, verify `npm run dev` |
+
+**Measurement rules (from autoRun.md):**
+- ⏱ **Start time**: recorded immediately after `npm install` completes
+- ⏱ **End time**: recorded when all steps are done
+- ⏱ **Total time** = End − Start (npm install excluded)
+- Results auto-written to `benchmark-result.md`
+
+> ⚠️ Note: `agent-skills/` content is not included in this repository due to copyright.
+> The `.gitkeep` placeholder indicates the folder's expected location.
+
+---
+
+### Group B — Scripture AIDD
+
+**Trigger prompt:**
+```
+Read autoRun.md and execute.
+```
+
+**What happens automatically (no user confirmation at any step):**
+
+| Phase | Action |
+|:---|:---|
+| Phase 0 | Clear `bible-성경/` and `fruit-열매/` (preserve `history/`) |
+| Phase 1 Hearing | Read SKILL-01 → Write spec, use-case, RTM to `bible-성경/01/` |
+| Phase 2 Foundation | Read SKILL-02 → Write architecture, DB, API docs to `bible-성경/02/` |
+| Phase 3 Order | Read SKILL-03 → Write UI/screen design to `bible-성경/03/` |
+| Phase 4 Repentance | Read SKILL-04 → Implement source code to `fruit-열매/` based on bible-성경/01~03 |
+| Phase 5 Wilderness | Read SKILL-05 → Run 15-point code review + tests |
+| Phase 6 Written | Read SKILL-06 → Hallucination audit + IRONCLAD verdict |
+| Phase 7 Salvation | Read SKILL-07 → 7-seal check + verify `npm run dev` |
+
+**Measurement rules (from autoRun.md):**
+- ⏱ **Start time**: recorded immediately after `npm install` completes
+- ⏱ **End time**: recorded when all phases are done
+- ⏱ **Total time** = End − Start (npm install excluded)
+- Results auto-written to `benchmark-result.md`
+- Additional metric: **IRONCLAD verdict** from Phase 6 quality audit
+
+---
+
+### Key Difference in How the Test Starts
+
+| | Group A | Group B |
+|:---|:---|:---|
+| **Prompt sent** | `"Read autoRun.md and execute."` | `"Read autoRun.md and execute."` |
+| **Identical prompt** | ✅ Yes | ✅ Yes |
+| **AI reads first** | `autoRun.md` → then each `SKILL.md` per step | `autoRun.md` → then each `SKILL-0N_*.md` per phase |
+| **Source of truth during run** | SKILL files (in-context injection) | Canonized artifacts in `bible-성경/` |
+| **User interaction** | None (fully automated) | None (fully automated) |
+
+> Both methodologies were triggered identically.
+> The only variable is the methodology encoded in `autoRun.md` and its referenced SKILL files.
+
+---
+
 *Report Date: 2026-05-27 · Antigravity IDE*  
-*Data Sources: `F:\qrCodeBoard_Addy\benchmark-result.md` · `F:\qrCodeBoard_TheScripture\the-scripture-aidd\fruit-열매\benchmark-result.md`*
+*Data Sources: `src/qrCodeBoard_Addy/benchmark-result.md` · `src/qrCodeBoard_TheScripture/benchmark-result.md`*

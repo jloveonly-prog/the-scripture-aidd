@@ -3,6 +3,7 @@
 
 > **검증 일자:** 2026-05-27  
 > **검증 환경:** Windows 로컬 PC · Node.js v24 · Antigravity IDE  
+> **AI 모델:** Claude Sonnet 4.6 (양 조 동일)  
 > **검증 목적:** 동일한 요구사항을 두 AI 방법론으로 실행 시 차이를 객관적으로 측정
 
 ---
@@ -23,6 +24,8 @@
 | 엔진 유형 | 스킬 주입 엔진 | 산출물 앵커링 엔진 |
 | AI 페르소나 | "시니어 엔지니어" | "나는 죄인이다" |
 | 파이프라인 | 6단계 (DEFINE → SHIP) | 7 Phase (들음 → 구원) |
+| **AI 모델** | **Claude Sonnet 4.6** | **Claude Sonnet 4.6** |
+| **실행 방식** | **단일 세션 (서브에이전트 없음)** | **단일 세션 (서브에이전트 없음)** |
 | 워크스페이스 | `F:\qrCodeBoard_Addy` | `F:\qrCodeBoard_TheScripture` |
 
 ---
@@ -31,6 +34,7 @@
 
 | 측정 항목 | A조: Agent-Skills | B조: Scripture AIDD |
 |:---|:---:|:---:|
+| **실행 방식** | **단일 세션** | **단일 세션** |
 | **총 소요 시간** | 12분 | **9분** |
 | **AI 오류/수정** | 3회 | **1회** |
 | **코드 라인 수** | 687줄 | 736줄 |
@@ -394,5 +398,93 @@ Scripture AIDD: AI가 틀릴 수밖에 없음을 전제한다
 
 ---
 
+## 10. 벤치마크 재현 방법
+
+> 양 조 모두 AI에게 동일한 단 한 줄의 프롬프트로 시작됐다:
+> **"autoRun.md 읽고 실행해"**
+> 이후 완료까지 사용자 개입 없음.
+
+### 사전 조건
+
+- Node.js v24+
+- 파일 읽기 + 터미널 명령 실행이 가능한 AI 에이전트 (예: Antigravity IDE + Claude Sonnet 4.6)
+- `src/` 하위 폴더 구조대로 소스 복사 또는 클론
+
+---
+
+### A조 — Agent-Skills
+
+**트리거 프롬프트:**
+```
+autoRun.md 읽고 실행해
+```
+
+**자동 실행 순서 (중간 확인 없이 끝까지):**
+
+| 단계 | 내용 |
+|:---|:---|
+| Step 0 | `docs/` · `src/` 전체 초기화 (이전 결과 오염 방지) |
+| Step 1 DEFINE | `agent-skills/.../SKILL.md` 읽기 → PRD를 `docs/`에 작성 |
+| Step 2 PLAN | 계획 SKILL 읽기 → 태스크 분해 문서를 `docs/`에 작성 |
+| Step 3 BUILD | 구현 SKILL 읽기 → 소스코드를 `src/`에 작성 |
+| Step 4 TEST | 테스트 SKILL 읽기 → 테스트 실행 |
+| Step 5 REVIEW | 리뷰 SKILL 읽기 → 코드 품질 점검 |
+| Step 6 SHIP | 배포 SKILL 읽기 → 최종 빌드, `npm run dev` 실행 확인 |
+
+**측정 규칙 (autoRun.md 기준):**
+- ⏱ **시작 시각**: `npm install` 완료 직후
+- ⏱ **종료 시각**: 모든 단계 완료 시점
+- ⏱ **총 소요 시간** = 종료 − 시작 (npm install 제외)
+- 결과는 자동으로 `benchmark-result.md`에 기록
+
+> ⚠️ `agent-skills/` 내용은 저작권으로 인해 포함되지 않음.
+> `.gitkeep` 플레이스홀더가 해당 폴더 위치를 표시함.
+
+---
+
+### B조 — Scripture AIDD
+
+**트리거 프롬프트:**
+```
+autoRun.md 읽고 실행해
+```
+
+**자동 실행 순서 (중간 확인 없이 끝까지):**
+
+| Phase | 내용 |
+|:---|:---|
+| Phase 0 | `bible-성경/` · `fruit-열매/` 초기화 (`history/` 폴더만 보존) |
+| Phase 1 들음 | SKILL-01 읽기 → 명세서·유스케이스·RTM을 `bible-성경/01/`에 작성 |
+| Phase 2 기초 | SKILL-02 읽기 → 아키텍처·DB·API 문서를 `bible-성경/02/`에 작성 |
+| Phase 3 질서 | SKILL-03 읽기 → UI/화면설계를 `bible-성경/03/`에 작성 |
+| Phase 4 회개 | SKILL-04 읽기 → `bible-성경/01~03` 기반으로 `fruit-열매/`에 코드 구현 |
+| Phase 5 광야 | SKILL-05 읽기 → 15항목 코드 검증 + 테스트 |
+| Phase 6 기록되었으되 | SKILL-06 읽기 → 할루시네이션 감사 + IRONCLAD 판정 |
+| Phase 7 구원 | SKILL-07 읽기 → 7관문 체크 + `npm run dev` 실행 확인 |
+
+**측정 규칙 (autoRun.md 기준):**
+- ⏱ **시작 시각**: `npm install` 완료 직후
+- ⏱ **종료 시각**: 모든 Phase 완료 시점
+- ⏱ **총 소요 시간** = 종료 − 시작 (npm install 제외)
+- 결과는 자동으로 `benchmark-result.md`에 기록
+- 추가 지표: Phase 6 품질 감사의 **IRONCLAD 판정** 여부
+
+---
+
+### 테스트 시작 방식 핵심 비교
+
+| | A조 | B조 |
+|:---|:---|:---|
+| **전송된 프롬프트** | `"autoRun.md 읽고 실행해"` | `"autoRun.md 읽고 실행해"` |
+| **동일한 프롬프트** | ✅ 동일 | ✅ 동일 |
+| **AI가 먼저 읽는 것** | `autoRun.md` → 각 단계마다 `SKILL.md` | `autoRun.md` → 각 Phase마다 `SKILL-0N_*.md` |
+| **실행 중 진실의 원천** | SKILL 파일 (컨텍스트 주입) | `bible-성경/` 정경 문서 (외부 앵커) |
+| **사용자 개입** | 없음 (완전 자동) | 없음 (완전 자동) |
+
+> 두 방법론은 완전히 동일하게 시작됐다.
+> 차이를 만드는 유일한 변수는 `autoRun.md`와 참조 SKILL 파일에 인코딩된 방법론 자체다.
+
+---
+
 *보고서 작성: 2026-05-27 · Antigravity IDE*  
-*데이터 출처: `F:\qrCodeBoard_Addy\benchmark-result.md` · `F:\qrCodeBoard_TheScripture\the-scripture-aidd\fruit-열매\benchmark-result.md`*
+*데이터 출처: `src/qrCodeBoard_Addy/benchmark-result.md` · `src/qrCodeBoard_TheScripture/benchmark-result.md`*

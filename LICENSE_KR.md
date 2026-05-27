@@ -25,7 +25,29 @@
 - **파이프라인 아키텍처** — 창세기~요한계시록 SDLC 매핑 및 모든 단계 정의
 - **네이밍 체계** — 삼중 활성화(Triple Activation) 네이밍 시스템 및 성막 아키텍처 구조
 - **AI 페르소나 프레임워크** — 천로역정 페르소나 및 삼위일체 아키텍처 정의
-- **템플릿 및 규격** — 모든 율법(statute) 템플릿, 기술(skill) 지침, 코덱스(codex) 문서
+- **템플릿 및 규격** — 모든 율법(statute) 템플릿, 기술(skill) 지침, 북(book) 문서
+
+---
+
+## 🔬 지적 계보 — BVCAP 성경 검증 감사 엔진
+
+Scripture AIDD의 일부 핵심 검증 개념은
+**[the-scripture-audit](https://github.com/jloveonly-prog/the-scripture-audit)** 프로젝트에서 연구된
+**BVCAP (Bible Verification & Cross-Audit Pipeline)** 성경 검증 감사 엔진의 방법론적 통찰을 흡수하고 있습니다.
+
+특히 다음 기법들이 Scripture AIDD의 Phase 1(들음) 및 Phase 6(기록되었으되)에 반영되어 있습니다:
+
+| BVCAP 기법 | Scripture AIDD 적용 위치 | 기능 |
+|:---|:---|:---|
+| **요구사항 소거법** (Competitive Interpretation Elimination) | Phase 1 들음 · SKILL-01 | 동일 req에서 가능한 해석을 모두 나열 후 근거로 하나씩 소거하여 단일 해석 도출 |
+| **핵심 동사 오독 검증** | Phase 1 들음 · Phase 6 기록되었으되 | req의 핵심 동사(How)가 명사구로 오독되지 않았는지 확인 |
+| **3도메인 교차 감사** (해석학·논리학·오류분석) | Phase 6 기록되었으되 · SKILL-06 | 단일 도메인이 아닌 세 관점에서 동시 교차 검증 |
+| **할루시네이션 즉시 제거 원칙** | Phase 6 기록되었으되 | Spec에 없는 구현물 발견 시 즉시 제거 (합리화 금지) |
+
+> BVCAP는 성경 텍스트의 진위 검증을 위해 개발된 감사 파이프라인으로,
+> Scripture AIDD는 그 핵심 원리를 소프트웨어 요구사항 분석과 AI 감사 영역에 적용했습니다.
+>
+> 참조: **[github.com/jloveonly-prog/the-scripture-audit](https://github.com/jloveonly-prog/the-scripture-audit)**
 
 ---
 
@@ -33,7 +55,7 @@
 
 본 시스템은 단순한 개발 방법론이 아니라, **개인의 신앙, 철학, 신학적 통찰을 AI의 행동 패턴으로 이식하여 살아있는 개발 프레임워크를 만드는 유기적 프로젝트**입니다.
 
-만약 이 프레임워크를 활용하여 새로운 통찰이나 패턴을 개발하셨다면, **jloveonly@gmail.com**으로 공유해 주시기 바랍니다. 여러분의 기여는 시스템 내에 새로운 율법(statute), 비유(parable), 또는 코덱스(codex) 문서로 통합될 수 있습니다.
+만약 이 프레임워크를 활용하여 새로운 통찰이나 패턴을 개발하셨다면, **jloveonly@gmail.com**으로 공유해 주시기 바랍니다. 여러분의 기여는 시스템 내에 새로운 율법(statute), 비유(parable), 또는 북(book) 문서로 통합될 수 있습니다.
 
 **[우리의 AI 철학 및 워크플로우]**
 > *"Spec을 들음(hearing)하고, 성령의 인도로 개발하고, 광야에서 시험하고, 사탄의 할루시네이션을 격퇴하고, 구원(Deploy)에 이르라."*
