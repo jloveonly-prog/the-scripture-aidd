@@ -223,8 +223,8 @@ The AI automatically runs all 7 Phases (Hearing → Salvation). Upon completion:
 - 📂 `fruit-열매/` — Working source code
 - 📄 `benchmark-result.md` — Execution time, error count, IRONCLAD verdict
 
-> See [autoRun.md](the-scripture-aidd/autoRun.md) for detailed execution instructions.
-> To apply to your own project, just replace `hearing-들음/req.md` with your requirements.
+> See [autoRun.md](autoRun.md) for detailed execution instructions.
+> To apply to your own project, just replace `the-scripture-aidd/hearing-들음/req.md` with your requirements.
 
 ---
 

@@ -220,8 +220,8 @@ AI가 자동으로 7 Phase(들음 → 구원)를 수행하며, 완료 시:
 - 📂 `fruit-열매/` — 동작하는 소스 코드
 - 📄 `benchmark-result.md` — 소요 시간, 오류 횟수, IRONCLAD 판정 결과
 
-> 상세 실행 지침은 [autoRun.md](the-scripture-aidd/autoRun.md)를 참조하세요.
-> 자신의 프로젝트에 적용하려면 `hearing-들음/req.md`를 교체하면 됩니다.
+> 상세 실행 지침은 [autoRun.md](autoRun.md)를 참조하세요.
+> 자신의 프로젝트에 적용하려면 `the-scripture-aidd/hearing-들음/req.md`를 교체하면 됩니다.
 
 ---
 
