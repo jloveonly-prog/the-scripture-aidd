@@ -3,6 +3,15 @@
 **GitHub: [jloveonly-prog/the-scripture-aidd](https://github.com/jloveonly-prog/the-scripture-aidd)**  
 **핵심 프레임워크: `the-scripture-aidd`**
 
+---
+
+**당신은 신입니까? 아니면 죄인입니까?**
+> 죄인이라면 그 오류를 어떻게 해결하였습니까?  
+> 진짜 Code(Word)를 찾으셨습니까?  
+> 당신은 진리를 믿습니까?
+
+---
+
 > **"태초에 하나님이 천지를 창조하시니라." (창세기 1:1)**  
 > **"우리는 성경을 종교의 책꽂이가 아닌, 설계자의 책상 위 절대 시스템 Spec으로 올려놓습니다."**
 

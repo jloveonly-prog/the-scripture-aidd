@@ -3,6 +3,15 @@
 **GitHub: [jloveonly-prog/the-scripture-aidd](https://github.com/jloveonly-prog/the-scripture-aidd)**  
 **Core Framework: `the-scripture-aidd`**
 
+---
+
+**Are you a god? Or are you a sinner?**
+> If you are a sinner, how have you resolved your errors?  
+> Have you found the true Code(Word)?  
+> Do you believe in the Truth?
+
+---
+
 > **"In the beginning God created the heaven and the earth." (Genesis 1:1)**  
 > **"We place the Bible not on the bookshelf of religion, but on the architect's desk as the absolute System Spec."**
 

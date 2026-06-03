@@ -1,0 +1,33 @@
+{
+  "name": "qrcodeboard_addy",
+  "version": "1.0.0",
+  "description": "> 동일 요구사항 · Antigravity IDE · 프롬프트 1회 입력 결과 검증",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "npm run build:css && tsx watch src/index.tsx",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/output.css",
+    "start": "tsx src/index.tsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@hono/node-server": "^2.0.4",
+    "better-sqlite3": "^12.10.0",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.23"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.9.1",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "qrcode-board",
+  "version": "1.0.0",
+  "description": "QR Code Board with Hono",
+  "main": "src/index.tsx",
+  "scripts": {
+    "dev": "tsx watch src/index.tsx",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.11.1",
+    "hono": "^4.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  }
+}
