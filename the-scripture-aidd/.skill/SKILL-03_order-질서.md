@@ -3,7 +3,7 @@ id: SKILL-03
 name: "질서 (Order)"
 phase: "A_설계"
 step: "03.design-order-질서"
-depends_on: [SKILL-02]
+depends_on: [SKILL-02, covenant-book-언약책]
 ---
 
 # SKILL-03: 질서 (03.design-order-질서)
@@ -89,8 +89,8 @@ Phase 1~2의 정경화된 산출물을 기반으로 화면을 설계하라.
 | `screen-vision-화면설계.md` | `bible-성경/03.design-order-질서/` |
 
 ## 🔍 심판 관문
-> 추가 심판: 모든 화면이 Phase 1의 유스케이스에 매핑되었는가?
-> 추가 심판: UC-화면 중복 해체 검증을 통과했는가? (중복 0건 또는 전부 독립/통합/분리 완료)
+> 전체 기준(P3-001~005)은 `gate-judgment-심판관문.md` 참조. 특히: 모든 화면이 Phase 1의 유스케이스에 매핑되었는가? UC-화면 중복 해체 검증을 통과했는가? (중복 0건 또는 전부 독립/통합/분리 완료)
 
-## ➡️ 다음 단계
+## ➡️ 다음 단계 (Phase 경계 전환)
+> TIER-2/3: `covenant-book-언약책.md` §5 "이동의 규례"에 따라 새 세션/서브에이전트로 전환하고, 이 Phase의 정경화된 산출물만 인계하라. TIER-1은 생략 가능.
 → `SKILL-04_repentance-회개개발.md`

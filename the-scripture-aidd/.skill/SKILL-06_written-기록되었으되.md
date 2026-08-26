@@ -3,7 +3,7 @@ id: SKILL-06
 name: "기록되었으되 (It Is Written)"
 phase: "B_구현"
 step: "06.quality-written-기록되었으되"
-depends_on: [SKILL-05]
+depends_on: [SKILL-05, covenant-book-언약책]
 ---
 
 # SKILL-06: 기록되었으되 (06.quality-written-기록되었으되)
@@ -224,5 +224,6 @@ Step 3: 각 구현 기능에 req.md 동사 근거가 있는지 대조하라
 |:--|:--|
 | `audit-judgment-심판보고.md` | `bible-성경/06.quality-written-기록되었으되/` |
 
-## ➡️ 다음 단계
+## ➡️ 다음 단계 (Phase 경계 전환)
+> 심판 기준(P6-001~006)은 `gate-judgment-심판관문.md` 참조. TIER-2/3: `covenant-book-언약책.md` §5 "이동의 규례"에 따라 새 세션/서브에이전트로 전환하고, 이 Phase의 정경화된 산출물만 인계하라. TIER-1은 생략 가능.
 → `SKILL-07_salvation-구원.md`

@@ -3,7 +3,7 @@ id: SKILL-07
 name: "구원 (Salvation/Deploy)"
 phase: "B_구현"
 step: "07.deploy-salvation-구원"
-depends_on: [SKILL-06]
+depends_on: [SKILL-06, covenant-book-언약책]
 ---
 
 # SKILL-07: 구원 (07.deploy-salvation-구원) 🕊️
@@ -43,6 +43,7 @@ depends_on: [SKILL-06]
 | 7 | RTM: 추적 커버리지 100% | ☐ |
 
 7관문 중 하나라도 ☐이면 배포하지 말라. 구원은 좁은 문이다.
+(이 표는 `gate-judgment-심판관문.md` P7-005의 실행형이다 — 두 문서가 일치해야 한다.)
 
 ## 배포 절차
 1. 최종 빌드 생성

@@ -3,7 +3,7 @@ id: SKILL-05
 name: "광야 (Wilderness)"
 phase: "B_구현"
 step: "05.test-wilderness-광야"
-depends_on: [SKILL-04]
+depends_on: [SKILL-04, covenant-book-언약책]
 ---
 
 # SKILL-05: 광야 (05.test-wilderness-광야)
@@ -376,5 +376,6 @@ Phase 5 (광야)                                REPENT_COUNT = 0
 |:--|:--|
 | `testplan-trial-시험계획.md` | `bible-성경/05.test-wilderness-광야/` |
 
-## ➡️ 다음 단계
+## ➡️ 다음 단계 (Phase 경계 전환)
+> 심판 기준(P5-001~006)은 `gate-judgment-심판관문.md` 참조. TIER-2/3: `covenant-book-언약책.md` §5 "이동의 규례"에 따라 새 세션/서브에이전트로 전환하고, 이 Phase의 정경화된 산출물만 인계하라. TIER-1은 생략 가능.
 → `SKILL-06_written-기록되었으되.md`

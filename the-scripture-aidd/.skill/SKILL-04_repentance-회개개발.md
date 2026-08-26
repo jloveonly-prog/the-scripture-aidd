@@ -3,7 +3,7 @@ id: SKILL-04
 name: "회개 개발 (Repentance Development)"
 phase: "B_구현"
 step: "04.development-repentance-회개"
-depends_on: [SKILL-03]
+depends_on: [SKILL-03, covenant-book-언약책]
 ---
 
 # SKILL-04: 회개 개발 (04.development-repentance-회개) ⭐ 핵심 단계
@@ -327,8 +327,8 @@ app.get("/board", async (c) => {
 | `devguide-commandment-개발계명.md` | `bible-성경/04.development-repentance-회개/` | ✅ |
 
 ## 🔍 심판 관문
-> 추가 심판: 설계에 없는 임의 구현이 존재하지 않는가? (할루시네이션 = 죄)
-> 봉인의 율법 위반 0건인가?
+> 전체 기준(P4-001~006, 병렬 개발 시 ORCH4-001~006 추가)은 `gate-judgment-심판관문.md` 참조. 특히: 설계에 없는 임의 구현이 존재하지 않는가? (할루시네이션 = 죄) 봉인의 율법 위반 0건인가?
 
-## ➡️ 다음 단계
+## ➡️ 다음 단계 (Phase 경계 전환)
+> TIER-2/3: `covenant-book-언약책.md` §5 "이동의 규례"에 따라 새 세션/서브에이전트로 전환하고, 이 Phase의 정경화된 산출물만 인계하라. TIER-1은 생략 가능. 지파별 병렬 개발을 했다면 `ORCH-01_canaan-가나안분배.md`의 통합 절차를 먼저 완료하라.
 → `SKILL-05_wilderness-광야.md`

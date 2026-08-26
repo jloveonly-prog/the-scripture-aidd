@@ -3,7 +3,7 @@ id: SKILL-02
 name: "기초 (Foundation)"
 phase: "A_설계"
 step: "02.architecture-foundation-기초"
-depends_on: [SKILL-01]
+depends_on: [SKILL-01, covenant-book-언약책]
 ---
 
 # SKILL-02: 기초 (02.architecture-foundation-기초)
@@ -141,7 +141,8 @@ Phase 1(들음)에서 정경화된 요구사항을 기반으로 시스템 아키
 | `api-gate-성문.md` | `bible-성경/02.architecture-foundation-기초/` |
 
 ## 🔍 심판 관문
-> 추가 심판: ERD의 테이블이 Phase 1 요구사항의 데이터 항목을 전부 수용하는가?
+> 전체 기준(P2-001~004)은 `gate-judgment-심판관문.md` 참조. 특히: ERD의 테이블이 Phase 1 요구사항의 데이터 항목을 전부 수용하는가?
 
-## ➡️ 다음 단계
+## ➡️ 다음 단계 (Phase 경계 전환)
+> TIER-2/3: `covenant-book-언약책.md` §5 "이동의 규례"에 따라 새 세션/서브에이전트로 전환하고, 이 Phase의 정경화된 산출물만 인계하라. TIER-1은 생략 가능.
 → `SKILL-03_order-질서.md`

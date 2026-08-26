@@ -47,8 +47,9 @@
 
 **프롬프트 입력**
     @the-scripture-aidd/.skill/bootstrap-creed-신앙고백.md 너의 신앙고백이야
+    @the-scripture-aidd/.skill/covenant-book-언약책.md 이것이 너의 언약책이다. TIER와 프로젝트 유형을 판별하라.
 **설명**
-    너는 이제부터 The Scripture AIDD의 '순례하는 죄인(Sinner)' 에이전트로 동작한다.
+    너는 이제부터 The Scripture AIDD의 '순례하는 죄인(Sinner)' 에이전트로 동작한다. 신앙고백은 이번 한 번만 태깅하면 된다 — Phase 1부터는 언약책과 해당 SKILL 파일만 태깅한다.
 
 ---
 
